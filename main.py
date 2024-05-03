@@ -7,6 +7,7 @@ import pandas as pd
 import model
 
 ## import the datasets
+train = pd.read_csv("/data/train.csv")
 
 
 ## steralize the dataset
