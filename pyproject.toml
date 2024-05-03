@@ -9,6 +9,9 @@ packages = [{include = "repl_nix_deeplearning_project"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 pandas = "^2.2.2"
+gensim = "^4.3.2"
+keras = "^3.3.3"
+numpy = "^1.26.4"
 
 
 [build-system]
