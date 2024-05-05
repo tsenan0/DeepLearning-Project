@@ -5,7 +5,6 @@
 ################################
 import pandas as pd
 import numpy as np
-## must use scipy version 1.10.1
 from gensim.models import Word2Vec
 from keras.preprocessing.sequence import pad_sequences
 from keras.models import Sequential
@@ -33,7 +32,9 @@ data_train['sentence'] = data_train['sentence'].apply(lambda x: [model.wv.get_ve
 
 ## train the model
 maxlen = max(data_train['sentence'].apply(len))
-data_train['sentence'] = [pad_sequences(data_train['sentence'], padding='post', maxlen=maxlen)]
+padded_sequences = pad_sequences(data_train['sentence'], padding='post', maxlen=maxlen)
+
+data_train['sentence'] = padded_sequences.tolist()
 
 x_train = np.stack(data_train['sentence'].values)
 y_train = data_train['avg_score'].values
